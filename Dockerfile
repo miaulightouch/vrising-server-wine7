@@ -20,4 +20,4 @@ RUN apt update && \
     WINEARCH=win64 winecfg && \
     chmod +x /docker-entrypoint.sh
 
-ENTRYPOINT [ "/docker-enrtypoint.sh" ]
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
