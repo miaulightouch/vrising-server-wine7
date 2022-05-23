@@ -1,10 +1,10 @@
 FROM steamcmd/steamcmd:ubuntu-20
 
-ENV TZ="America/New_York"
-
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
-RUN DEBIAN_FRONTEND="noninteractive" apt update && \
+ARG DEBIAN_FRONTEND="noninteractive"
+ENV TZ="Etc/UTC"
+RUN apt update && \
     apt-get install --no-install-recommends -y wget && \
     wget -nc https://dl.winehq.org/wine-builds/winehq.key && \
     mv winehq.key /usr/share/keyrings/winehq-archive.key && \
