@@ -18,7 +18,6 @@ RUN apt update && \
     mkdir /data && \
     mkdir /logs && \
     WINEARCH=win64 winecfg && \
-    sleep 5 && \
     chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT [ "docker-enrtypoint.sh" ]
