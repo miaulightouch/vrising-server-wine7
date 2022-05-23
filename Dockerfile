@@ -17,7 +17,6 @@ RUN apt update && \
     apt autoremove -y && \
     mkdir /data && \
     mkdir /logs && \
-    WINEARCH=win64 winecfg && \
     chmod +x /docker-entrypoint.sh
 
-ENTRYPOINT [ "/docker-entrypoint.sh" ]
+CMD [ "/docker-entrypoint.sh" ]

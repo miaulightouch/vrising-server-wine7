@@ -4,14 +4,14 @@ set -e
 if [ "$1" = '' ]; then
     steamcmd +force_install_dir /home/VRisingServer +login anonymous +app_update 1829350 validate +quit
 
-    if [ ! -f /root/.wine ]; then
+    if [ ! -d /root/.wine ]; then
         echo "Wine not found, installing..."
-        winecfg > /dev/null 2>&1
+        WINEARCH=win64 winecfg > /dev/null 2>&1
         sleep 5
         echo "Wine installed"
     fi
 
-    if [ ! -f /data/Settings ]; then
+    if [ ! -d /data/Settings ]; then
         echo "Copy Settings folder"
         cp -r /home/VRisingServer/VRisingServer_Data/StreamingAssets/Settings /data/Settings
     fi

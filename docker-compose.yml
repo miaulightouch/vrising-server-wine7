@@ -2,7 +2,7 @@ version: "3"
 
 services:
   vrising:
-    image: ich777/steamcmd:vrising
+    image: miaulightouch/vrising-server-wine7
     # build: .
     container_name: vrising
     environment:
