@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  vrising:
+    image: ich777/steamcmd:vrising
+    # build: .
+    container_name: vrising
+    environment:
+      - TZ=America/New_York
+    volumes:
+      - /docker/vrising/data:/data
+      - /docker/vrising/logs:/logs
+    ports:
+      - 28015:28015/udp
+      - 28016:28016/udp
+    restart: unless-stopped
