@@ -18,6 +18,7 @@ RUN apt update && \
     apt update && \
     apt install --no-install-recommends -y winehq-stable xvfb && \
     rm -rf /var/lib/apt/lists/* && \
+    apt remove --purge -y wget && \
     apt clean && \
     apt autoremove -y && \
     mkdir /data && \
