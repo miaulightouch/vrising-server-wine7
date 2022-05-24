@@ -3,9 +3,9 @@ set -e
 
 if [ "$1" = '' ]; then
     if [ "$VALIDATE" = 'true' ]; then
-        steamcmd +force_install_dir /vrising +login anonymous +app_update 1829350 ${GAME_ID} validate +quit
+        steamcmd +force_install_dir /vrising +login anonymous +app_update ${GAME_ID} validate +quit
     else
-        steamcmd +force_install_dir /vrising +login anonymous +app_update 1829350 ${GAME_ID} +quit
+        steamcmd +force_install_dir /vrising +login anonymous +app_update ${GAME_ID} +quit
     fi
 
     if [ ! -d /root/.wine ]; then
@@ -33,6 +33,10 @@ if [ "$1" = '' ]; then
     fi
 
     echo "[boot] Starting VRisingServer..."
+
+    if [ ! -f /logs/VRisingServer.log ]; then
+        touch /logs/VRisingServer.log
+    fi
 
     cd /vrising
     xvfb-run --auto-servernum --server-args='-screen 0 640x480x24:32' wine64 VRisingServer.exe -persistentDataPath Z:/data -logFile Z:/logs/VRisingServer.log ${GAME_PARAMS} >/dev/null 2>&1 &
