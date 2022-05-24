@@ -3,7 +3,12 @@ FROM steamcmd/steamcmd:ubuntu-20
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 ARG DEBIAN_FRONTEND="noninteractive"
-ENV TZ="Etc/UTC"
+
+ENV TZ=Etc/UTC
+ENV GAME_ID=1829350
+ENV GAME_PARAMS=
+ENV VALIDATE=true
+
 RUN apt update && \
     apt-get install --no-install-recommends -y wget && \
     wget -nc https://dl.winehq.org/wine-builds/winehq.key && \
@@ -17,6 +22,8 @@ RUN apt update && \
     apt autoremove -y && \
     mkdir /data && \
     mkdir /logs && \
+    mkdir /vrising && \
     chmod +x /docker-entrypoint.sh
 
-CMD [ "/docker-entrypoint.sh" ]
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
+CMD []

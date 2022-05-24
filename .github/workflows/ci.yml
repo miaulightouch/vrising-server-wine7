@@ -9,6 +9,8 @@ on:
   push:
     branches:
       - 'main'
+      - 'staging'
+      - 'edge'
   workflow_dispatch:
 
 jobs:

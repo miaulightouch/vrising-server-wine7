@@ -3,14 +3,16 @@ version: "3"
 services:
   vrising:
     image: miaulightouch/vrising-server-wine7
-    # build: .
     container_name: vrising
     environment:
-      - TZ=America/New_York
+      - TZ=America/New_York # optional
+      - GAME_ID=1829350     # optional
+      - GAME_PARAMS=        # optional
+      - VALIDATE=true       # optional
     volumes:
-      - /docker/vrising/data:/data
-      - /docker/vrising/logs:/logs
+      - /path/to/data:/data
+      - /path/to/logs:/logs
+      - /path/to/server:/vrising
     ports:
-      - 28015:28015/udp
-      - 28016:28016/udp
+      - 9876-9877:9876-9877/udp
     restart: unless-stopped
