@@ -16,7 +16,7 @@ RUN apt update && \
     wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources && \
     mv winehq-focal.sources /etc/apt/sources.list.d/ && \
     apt update && \
-    apt install --no-install-recommends -y winehq-stable xvfb && \
+    apt install --no-install-recommends -y winehq-staging xvfb && \
     rm -rf /var/lib/apt/lists/* && \
     apt remove --purge -y wget && \
     apt clean && \
