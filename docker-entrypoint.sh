@@ -9,30 +9,32 @@ if [ "$1" = '' ]; then
     fi
 
     if [ ! -d /root/.wine ]; then
-        echo "Wine not found, installing..."
+        echo "[boot] Wine is not ready, initializing..."
         WINEARCH=win64 winecfg > /dev/null 2>&1
         sleep 5
-        echo "Wine installed"
+        echo "[boot] Wine initialized"
     fi
 
     if [ ! -d /data/Settings ]; then
-        echo "Copy default settings..."
-        cp -r /home/VRisingServer/VRisingServer_Data/StreamingAssets/Settings /data/Settings
+        echo "[boot] Copy default settings..."
+        cp -r /vrising/VRisingServer_Data/StreamingAssets/Settings /data/Settings
     fi
 
     if [ -f /data/Settings/adminlist.txt ]; then
-        echo "adminlist.txt found, linking..."
-        rm -f /home/VRisingServer/VRisingServer_Data/StreamingAssets/Settings/adminlist.txt
-        ln -s /data/Settings/adminlist.txt /home/VRisingServer/VRisingServer_Data/StreamingAssets/Settings/adminlist.txt
+        echo "[boot] adminlist.txt found, linking..."
+        rm -f /vrising/VRisingServer_Data/StreamingAssets/Settings/adminlist.txt
+        ln -s /data/Settings/adminlist.txt /vrising/VRisingServer_Data/StreamingAssets/Settings/adminlist.txt
     fi
 
     if [ -f /data/Settings/banlist.txt ]; then
-        echo "banlist.txt found, linking..."
-        rm -f /home/VRisingServer/VRisingServer_Data/StreamingAssets/Settings/banlist.txt
-        ln -s /data/Settings/banlist.txt /home/VRisingServer/VRisingServer_Data/StreamingAssets/Settings/banlist.txt
+        echo "[boot] banlist.txt found, linking..."
+        rm -f /vrising/VRisingServer_Data/StreamingAssets/Settings/banlist.txt
+        ln -s /data/Settings/banlist.txt /vrising/VRisingServer_Data/StreamingAssets/Settings/banlist.txt
     fi
 
-    cd /home/VRisingServer
+    echo "[boot] Starting VRisingServer..."
+
+    cd /vrising
     xvfb-run --auto-servernum --server-args='-screen 0 640x480x24:32' wine64 VRisingServer.exe -persistentDataPath Z:/data -logFile Z:/logs/VRisingServer.log ${GAME_PARAMS} >/dev/null 2>&1 &
 
     tail -f /logs/VRisingServer.log

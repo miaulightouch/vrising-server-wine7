@@ -11,6 +11,9 @@ on:
       - 'main'
       - 'staging'
       - 'edge'
+    paths:
+      - 'Dockerfile'
+      - 'docker-entrypoint.sh'
   workflow_dispatch:
 
 jobs:
