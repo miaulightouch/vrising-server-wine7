@@ -6,12 +6,30 @@ this docker image based on [BorkforceOne/V-Rising-Docker-Linux](https://github.c
 
 lots of server options from ENV removed, you should edit it in `ServerHostSettings.json` and `ServerGameSettings.json` directly.
 
+default server setting files are all placed in `/data` folder, you can use these file to start your server.
+
+## Folder Structure
+
+```plain
+/
+├─data
+│  ├─Saves
+│  └─Settings
+│
+├─logs
+│  └─VRisingServer.log
+│
+└─vrising               # server files
+```
+
+## Env Options
+
 | Name | Default | Description |
 | ---- |:-------:| ----------- |
 | TZ | Etc/UTC | Timezone |
 | GAME_ID | 1829350 | The GAME_ID that download from steam at startup
 | GAME_PARAMS | "" | additional parameter for server launch
-| VALIDATE | true | validate server files every time when container startup
+| VALIDATE | true | validate server files when container startup
 
 ## Example
 
