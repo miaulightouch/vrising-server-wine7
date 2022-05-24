@@ -1,12 +1,12 @@
-# V-Rising Server run on wine7
+# V-Rising Server
 
-V-Rising Server run on latest wine stable version
+V-Rising Server run on latest wine.
 
-this docker image based on [BorkforceOne/V-Rising-Docker-Linux](https://github.com/BorkforceOne/V-Rising-Docker-Linux) and [ich777/docker-steamcmd-server@v-rising](https://github.com/ich777/docker-steamcmd-server/tree/vrising).
+This docker image based on [BorkforceOne/V-Rising-Docker-Linux](https://github.com/BorkforceOne/V-Rising-Docker-Linux), [ich777/docker-steamcmd-server@v-rising](https://github.com/ich777/docker-steamcmd-server/tree/vrising) and [steamcmd/steamcmd](https://github.com/steamcmd/docker).
 
-lots of server options from ENV removed, you should edit it in `ServerHostSettings.json` and `ServerGameSettings.json` directly.
+To config your server, please apply your settings by editing `ServerHostSettings.json` and `ServerGameSettings.json` directly and mount to `/data/Settings` in container. (it's recommended to mount whole `/data` to host filesystem to keep game progress, or it would be lost.)
 
-default server setting files are all placed in `/data` folder, you can use these file to start your server.
+Default server setting files are all placed in `data` folder, you can use these file to start your server.
 
 ## Available tags
 
@@ -14,7 +14,7 @@ default server setting files are all placed in `/data` folder, you can use these
 - [`staging`](https://github.com/miaulightouch/vrising-server-wine7/blob/staging/Dockerfile) use latest `winehq-staging`
 - [`edge`](https://github.com/miaulightouch/vrising-server-wine7/blob/edge/Dockerfile) use latest `winehq-devel`
 
-## Folder Structure
+## Folder Structure in container
 
 ```plain
 /
