@@ -8,18 +8,24 @@ lots of server options from ENV removed, you should edit it in `ServerHostSettin
 
 default server setting files are all placed in `/data` folder, you can use these file to start your server.
 
+## Available tags
+
+- [`main`, `latest`](https://github.com/miaulightouch/vrising-server-wine7/blob/main/Dockerfile) use latest `winehq-stable`
+- [`staging`](https://github.com/miaulightouch/vrising-server-wine7/blob/staging/Dockerfile) use latest `winehq-staging`
+- [`edge`](https://github.com/miaulightouch/vrising-server-wine7/blob/edge/Dockerfile) use latest `winehq-devel`
+
 ## Folder Structure
 
 ```plain
 /
-├─data
-│  ├─Saves
-│  └─Settings
+├─ data
+│  ├─ Saves
+│  └─ Settings
 │
-├─logs
-│  └─VRisingServer.log
+├─ logs
+│  └─ VRisingServer.log
 │
-└─vrising               # server files
+└─ vrising               # server files
 ```
 
 ## Env Options
