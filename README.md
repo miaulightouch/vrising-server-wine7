@@ -1,4 +1,4 @@
-# V-Rising Server
+# V-Rising Server Docker
 
 V-Rising Server run on latest wine.
 
